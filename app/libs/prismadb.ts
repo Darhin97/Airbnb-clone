@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 //nextjs hot reloading creates alot of prismaclient  instance
-//assign prisma client to a globalthis  which is not affected by global reload
+//assign prisma client to a globalthis  which is not affected by hot reload
 
 //global definition of prisma
 declare global {
