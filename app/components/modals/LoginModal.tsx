@@ -2,7 +2,7 @@
 
 import { signIn } from "next-auth/react";
 
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 
 import useRegisterModal from "../hooks/useRegisterModal";
@@ -54,6 +54,11 @@ const LoginModal = () => {
     });
   };
 
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
+
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome back" subtitle="Login to your account!" />
@@ -95,12 +100,12 @@ const LoginModal = () => {
       />
       <div className="text-stone-500 text-center mt-4 font-light">
         <div className="flex flex-row justify-center items-center gap-2">
-          <div>Already have an account?</div>
+          <div>First time using airbnb?</div>
           <div
-            onClick={registerModal.onClose}
+            onClick={toggle}
             className="text-neutral-800 hover:underline cursor-pointer"
           >
-            Login
+            Create an account
           </div>
         </div>
       </div>
