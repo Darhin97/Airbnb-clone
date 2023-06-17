@@ -1,4 +1,5 @@
 "use client";
+const axios = require("axios").default;
 
 import React, { useCallback, useState } from "react";
 import { SafeReservation, safeUser } from "../types";
@@ -8,8 +9,6 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import ListingCard from "../components/listings/ListingCard";
 // import axios from "axios";
-
-const axios = require("axios").default;
 
 interface TripsClientProps {
   reservations: SafeReservation[];
